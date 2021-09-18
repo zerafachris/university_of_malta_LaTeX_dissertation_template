@@ -79,3 +79,28 @@ Many computational scientists are used to the IEEE referencing style with number
 ### I have a huge figure which takes up all the page.  I would like to switch off headers and the bottom page numbers, but ```\thispagestyle{empty}``` does nothing (or changes some other page).
 
 The template uses the ```floatpag``` package.  All you need to do is place a ```\thisfloatpagestyle{empty}``` inside the figure or table environment.  Et voilà!  There is an example of this [here](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/master/chap2/background_and_lit_overview_main.tex).
+
+### How can I have References before the Appendix?
+Move the `\backmatter` contents within `dissertation_main.tex` to before the appendix in the `\mainmatter`. Namely:
+```
+\mainmatter 
+    \input{chap1/introduction_main} 
+    \input{chap2/background_and_lit_overview_main}
+    \input{chap3/materials_and_methods_main}
+    \input{chap4/results_and_discussion_main}
+    \input{chap5/evaluation_main}
+    \input{chap6/conclusions_main}
+{\backmatter
+    % Bibliography
+    \if@openright\cleardoublepage\else\clearpage\fi
+    \bibliographystyle{um-plainnat
+    \makeevenhead{umpage}{}{}{\color{gray}\sffamily\small\rightmark}
+    \makeoddhead{umpage}{}{}{\color{gray}\sffamily\small\rightmark}
+    {\scriptsize\bibliography{chap1/introduction_biblio,chap2/background_and_lit_overview_biblio}}
+	\printindex
+}
+    \appendix
+        \input{appA/appendix_a_main}
+        \input{appB/appendix_b_main}    
+        \input{appC/appendix_c_main} 
+```
