@@ -101,11 +101,6 @@
     \input{chap4/results_and_discussion_main}
     \input{chap5/evaluation_main}
     \input{chap6/conclusions_main}
-    \appendix
-        \input{appA/appendix_a_main}     % these are just test names as I didn't know what you'd want
-        \input{appB/appendix_b_main}    
-        \input{appC/appendix_c_main} 
-
 {\backmatter
     % Bibliography
     \if@openright\cleardoublepage\else\clearpage\fi
@@ -116,6 +111,12 @@
     {\scriptsize\bibliography{chap1/introduction_biblio,chap2/background_and_lit_overview_biblio}}
 	\printindex
 }
+    \appendix
+        \input{appA/appendix_a_main}     % these are just test names as I didn't know what you'd want
+        \input{appB/appendix_b_main}    
+        \input{appC/appendix_c_main} 
+
+
 
 \end{document}
 
